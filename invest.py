@@ -2,8 +2,6 @@ import math
 
 from print2d import print2d
 
-from sortedcontainers import SortedDict
-
 multip = {
     # US
     'spy': 0.7,
