@@ -7,7 +7,7 @@ multip = {
     'spy': 0.7,
     'voo': 0.7,
     # Total
-    'vti': 1.2,
+    'vti': 1.3,
     # UK
     'isf.l': 1,
     # India
@@ -26,22 +26,22 @@ multip = {
 }
 
 value = {
-    'ewj': 118.38,
-    'fxi': 71.86,
-    'iefa': 85.31,
-    'iemg': 57.29,
-    'inda': 146.94,
-    'isf.l': 143.08,
-    'spy': 105.15,
-    'vgk': 118.94,
-    'voo': 97.93,
-    'vti': 168.07,
-    'vwo': 57.30
+    'ewj': 211.92,
+    'fxi': 224.15,
+    'iefa': 257.20,
+    'iemg': 175.52,
+    'inda': 412.01,
+    'isf.l': 428.44,
+    'spy': 310.98,
+    'vgk': 211.63,
+    'voo': 310.90,
+    'vti': 533.07,
+    'vwo': 174.67
 }
 
 DELTA = 10
 
-CASH = 1287
+CASH = 277
 
 def roundValue(x):
     return math.floor(x * 100) / 100
