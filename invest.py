@@ -3,15 +3,15 @@ import math
 from print2d import print2d
 
 multip = {
-    # US
-    'spy': 0.7,
-    'voo': 0.7,
+    # US S&P
+    'spy': 0.6,
+    'voo': 0.6,
     # Total
     'vti': 1.3,
     # UK
-    'isf.l': 1,
+    'isf.l': 0.8,
     # India
-    'inda': 1,
+    'inda': 0.9,
     # Emerging
     'vwo': 0.4,
     'iemg': 0.4,
@@ -26,22 +26,22 @@ multip = {
 }
 
 value = {
-    'ewj': 211.92,
-    'fxi': 224.15,
-    'iefa': 257.20,
-    'iemg': 175.52,
-    'inda': 412.01,
-    'isf.l': 428.44,
-    'spy': 310.98,
-    'vgk': 211.63,
-    'voo': 310.90,
-    'vti': 533.07,
-    'vwo': 174.67
+    'ewj': 250.93,
+    'fxi': 228.70,
+    'iefa': 291.70,
+    'iemg': 191.75,
+    'inda': 466.18,
+    'isf.l': 486.18,
+    'spy': 330.14,
+    'vgk': 240.78,
+    'voo': 330.17,
+    'vti': 613.68,
+    'vwo': 192.39
 }
 
 DELTA = 10
 
-CASH = 277
+CASH = 1078
 
 def roundValue(x):
     return math.floor(x * 100) / 100
