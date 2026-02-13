@@ -26,22 +26,22 @@ multip = {
 }
 
 value = {
-  'ewj': 250.93,
-  'fxi': 228.70,
-  'iefa': 291.70,
-  'iemg': 191.75,
-  'inda': 466.18,
-  'isf.l': 486.18,
-  'spy': 330.14,
-  'vgk': 240.78,
-  'voo': 330.17,
-  'vti': 613.68,
-  'vwo': 192.39
+  'ewj': 334.69,
+  'fxi': 337.80,
+  'iefa': 396.41,
+  'iemg': 277.47,
+  'inda': 591.31,
+  'isf.l': 518.85,
+  'spy': 407.70,
+  'vgk': 327.41,
+  'voo': 408.81,
+  'vti': 886.00,
+  'vwo': 274.07
 }
 
 DELTA = 10
 
-CASH = 1078
+CASH = 1365
 
 def roundValue(x):
   return math.floor(x * 100) / 100
