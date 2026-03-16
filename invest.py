@@ -17,7 +17,7 @@ multip = {
   'iemg': 0.4,
   # World
   'iefa': 0.6,
-  'vxus': 0.2,
+  'vxus': 0.23,
   # Europe
   'vgk': 0.5,
   # China
@@ -27,23 +27,23 @@ multip = {
 }
 
 value = {
-  'ewj': 497.50,
-  'fxi': 410.87,
-  'iefa': 577.53,
-  'iemg': 391.19,
-  'inda': 773.47,
-  'isf.l': 789.98,
-  'spy': 532.10,
-  'vgk': 481.33,
-  'voo': 530.69,
-  'vti': 1150.28,
-  'vwo': 360.27,
-  'vxus': 100.09
+  'ewj': 472.60,
+  'fxi': 442.15,
+  'iefa': 543.33,
+  'iemg': 374.11,
+  'inda': 760.55,
+  'isf.l': 776.21,
+  'spy': 551.23,
+  'vgk': 453.84,
+  'voo': 541.16,
+  'vti': 1179.37,
+  'vwo': 343.80,
+  'vxus': 174.66
 }
 
 DELTA = 10
 
-CASH = 270
+CASH = 284
 
 def roundValue(x):
   return math.floor(x * 100) / 100
