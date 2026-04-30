@@ -3,25 +3,25 @@ import math
 from print2d import print2d
 
 multip = {
-  # US S&P
-  'spy': 0.6,
-  'voo': 0.6,
-  # Total
-  'vti': 1.3,
-  # UK
-  'isf.l': 0.8,
-  # India
-  'inda': 0.8,
-  # Emerging
-  'vwo': 0.4,
-  'iemg': 0.4,
   # World
   'iefa': 0.6,
   'vxus': 0.3,
   # Europe
   'vgk': 0.5,
+  # Emerging
+  'vwo': 0.4,
+  'iemg': 0.4,
+  # USA
+  'vti': 1.3,
+  # S&P
+  'spy': 0.6,
+  'voo': 0.6,
+  # UK
+  'isf.l': 0.8,
   # China
   'fxi': 0.5,
+  # India
+  'inda': 0.8,
   # Japan
   'ewj': 0.5,
 }
