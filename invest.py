@@ -1,11 +1,13 @@
-import math
+from math import floor
+from collections import defaultdict
+from typing import List
 
 from print2d import print2d
 
 multip = {
   # World
   'iefa': 0.6,
-  'vxus': 0.3,
+  'vxus': 0.6,
   # Europe
   'vgk': 0.5,
   # Emerging
@@ -26,7 +28,7 @@ multip = {
   'ewj': 0.5,
 }
 
-value = {
+values = {
   'ewj': 533.86,
   'fxi': 533.62,
   'iefa': 634.59,
@@ -43,46 +45,60 @@ value = {
 
 DELTA = 10
 
-CASH = -500
+CASH = 500
 
-def roundValue(x):
-  return math.floor(x * 100) / 100
+def roundValue(x: float) -> int | float:
+  if x == 0: return 0
+  return floor(x * 100) / 100
 
-def calc(cash, stocks):
-  num = cash
-  den = 0
+def calcUnitTarget(cash: int, stocks) -> float:
+  value = cash
+  units = 0
   for ticker in stocks:
-    num += value[ticker]
-    den += multip[ticker]
-  target = num / den
+    value += values[ticker]
+    units += multip[ticker]
+  return value / units
 
+def calcDiffs(cash: int | float, stocks: List[str]) -> dict[str, float]:
+
+  unitTarget = calcUnitTarget(cash, stocks)
+
+  # Filter out stocks past targets
   maxDiff = 0
   maxTicker = ''
   if cash > 0:
     for ticker in stocks:
-      if (diff := value[ticker] + DELTA - target * multip[ticker]) > maxDiff:
+      if (diff := values[ticker] + DELTA - unitTarget * multip[ticker]) > maxDiff:
         maxTicker, maxDiff = ticker, diff
   else:
     for ticker in stocks:
-      if (diff := target * multip[ticker] - value[ticker]) > maxDiff:
+      if (diff := unitTarget * multip[ticker] - values[ticker]) > maxDiff:
         maxTicker, maxDiff = ticker, diff
   if maxTicker:
-    return calc(cash, [ticker for ticker in stocks if ticker != maxTicker])
+    return calcDiffs(cash, [ticker for ticker in stocks if ticker != maxTicker])
   
-  res = {}
+  # Return diffs to targets
+  diffs = defaultdict(int)
   for ticker in stocks:
-    res[ticker] = target * multip[ticker] - value[ticker]
-  return res
+    diffs[ticker] = unitTarget * multip[ticker] - values[ticker]
+  return diffs
 
 def main():
   output = []
 
-  res = calc(CASH, value.keys())
+  diffs = calcDiffs(CASH, values.keys())
 
-  for ticker in value:
-    output.append([ticker, multip[ticker], value[ticker], roundValue(res[ticker] + value[ticker]) if ticker in res else 0, ticker, roundValue(res[ticker])if ticker in res else 0])
+  for ticker in values:
+    output.append([
+      ticker,
+      multip[ticker],
+      values[ticker],
+      roundValue(diffs[ticker] + values[ticker]),
+      ticker,
+      roundValue(diffs[ticker])
+    ])
 
-  print2d(output, columnHeaders=['ticker', 'multip', 'value', 'target', 'ticker', 'buy'])
+  print2d(output, columnHeaders=['ticker', 'multip', 'values', 'target', 'ticker', 'buy'])
 
 if __name__ == '__main__':
   main()
